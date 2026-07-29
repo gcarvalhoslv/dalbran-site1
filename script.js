@@ -216,9 +216,9 @@ function openModal(productId) {
     const fragranceList = document.getElementById('fragranceList');
     fragranceList.innerHTML = product.fragrances.map(f => `<span class="fragrance-item"><i class="fa-solid fa-check"></i> ${f}</span>`).join('');
 
-    // Link do WhatsApp dinâmico
+    // Link do WhatsApp com número atualizado
     const message = encodeURIComponent(`Olá! Gostaria de fazer um pedido do produto: ${product.title}`);
-    document.getElementById('modalWhatsappBtn').href = `https://wa.me/?text=${message}`;
+    document.getElementById('modalWhatsappBtn').href = `https://wa.me/5521920051788?text=${message}`;
 
     document.getElementById('productModal').classList.remove('hidden');
 }
