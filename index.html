@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Produtos - Dalbran</title>
+    <title>Catálogo Completo - Produtos de Limpeza & Higiene</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome Icons -->
+    <!-- Ícones e Fontes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -18,289 +17,121 @@
     <header class="navbar">
         <div class="container nav-container">
             <a href="#" class="brand-logo">
-                <i class="fa-solid fa-pump-soap logo-icon"></i>
-                <span class="brand-name">Dalbran<span>Produtos</span></span>
+                <i class="fa-solid fa-soap logo-icon"></i>
+                <span class="brand-name">Dalbran<span>Catálogo</span></span>
             </a>
             
             <div class="search-bar">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                <input type="text" id="searchInput" placeholder="Buscar produtos, essências ou tipos..." onkeyup="filterProducts()">
+                <input type="text" id="searchInput" placeholder="Buscar por produto, fragrância ou categoria..." oninput="filterProducts()">
             </div>
 
-            <div class="nav-actions">
-                <a href="#contato" class="btn btn-primary">
-                    <i class="fa-brands fa-whatsapp"></i> Fazer Pedido
-                </a>
-            </div>
+            <a href="#contato" class="btn btn-whatsapp-nav">
+                <i class="fa-brands fa-whatsapp"></i> <span class="hide-mobile">Contato</span>
+            </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Banner -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <span class="badge">Catálogo Oficial</span>
-                <h1>Soluções Completas em Limpeza e Higiene</h1>
-                <p>Produtos de alta qualidade e rendimento para sua casa ou empresa. Confira nossa linha completa abaixo.</p>
-            </div>
+            <span class="hero-badge">Qualidade & Rentabilidade</span>
+            <h1>Catálogo Oficial de Produtos</h1>
+            <p>Encontre a linha completa de limpeza, higiene e aromatizantes com variedade de fragrâncias.</p>
         </div>
     </section>
 
-    <!-- Filters & Catalog Section -->
+    <!-- Main Content -->
     <main class="container main-content">
-        <!-- Category Filter Buttons -->
-        <div class="category-filters" id="categoryFilters">
-            <button class="filter-btn active" onclick="filterCategory('todos')">Todos os Produtos</button>
-            <button class="filter-btn" onclick="filterCategory('limpeza')">Limpeza Geral</button>
-            <button class="filter-btn" onclick="filterCategory('desinfetantes')">Desinfetantes</button>
-            <button class="filter-btn" onclick="filterCategory('automotivo')">Linha Automotiva</button>
-            <button class="filter-btn" onclick="filterCategory('higiene')">Higiene Pessoal</button>
-        </div>
+        <!-- Filtros por Setor (Categorias) -->
+        <section class="category-section">
+            <h2 class="section-title"><i class="fa-solid fa-layer-group"></i> Navegue por Setores</h2>
+            <div class="category-filters" id="categoryFilters">
+                <button class="filter-btn active" onclick="filterCategory('todos')">
+                    <i class="fa-solid fa-border-all"></i> Todos
+                </button>
+                <button class="filter-btn" onclick="filterCategory('desinfetantes')">
+                    <i class="fa-solid fa-spray-can-sparkles"></i> Desinfetantes
+                </button>
+                <button class="filter-btn" onclick="filterCategory('limpeza')">
+                    <i class="fa-solid fa-pump-soap"></i> Limpeza Geral
+                </button>
+                <button class="filter-btn" onclick="filterCategory('automotivo')">
+                    <i class="fa-solid fa-car"></i> Linha Automotiva
+                </button>
+                <button class="filter-btn" onclick="filterCategory('higiene')">
+                    <i class="fa-solid fa-hand-holding-hand"></i> Higiene Pessoal
+                </button>
+            </div>
+        </section>
 
         <!-- Product Grid -->
-        <div class="product-grid" id="productGrid">
-
-            <!-- Card 1 -->
-            <div class="product-card" data-category="automotivo" data-name="abrilhantador de pneus rb100 1 litro">
-                <div class="card-image-wrapper">
-                    <img src="images/ABRILHANTADOR DE PNEUS - RB100 1 LITRO.png" alt="Abrilhantador de Pneus RB100 1L" loading="lazy">
-                    <span class="tag">Automotivo</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Abrilhantador de Pneus - RB100</h3>
-                    <p class="product-desc">Proporciona brilho intenso e proteção duradoura para os pneus do seu veículo.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 1 Litro</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Abrilhantador%20de%20Pneus%20RB100%201L" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
+        <section>
+            <div class="product-grid" id="productGrid">
+                <!-- Os produtos serão renderizados dinamicamente pelo JS -->
             </div>
 
-            <!-- Card 2 -->
-            <div class="product-card" data-category="limpeza" data-name="amaciante de roupas 2l lavanda amacipex floral">
-                <div class="card-image-wrapper">
-                    <img src="images/AMACIANTE DE ROUPAS 2L - LAVANDA - AMACIPEX - FLORAL.png" alt="Amaciante de Roupas 2L" loading="lazy">
-                    <span class="tag">Lavanderia</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Amaciante de Roupas Amacipex</h3>
-                    <p class="product-desc">Roupas macias, perfumadas e fáceis de passar. Disponível nas fragrâncias Lavanda e Floral.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 2 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Amaciante%20de%20Roupas%202L" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
+            <!-- Estado Vazio -->
+            <div id="noResults" class="no-results hidden">
+                <i class="fa-solid fa-magnifying-glass-minus"></i>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Tente buscar por outro termo ou selecione uma categoria diferente.</p>
             </div>
-
-            <!-- Card 3 -->
-            <div class="product-card" data-category="limpeza" data-name="aromatizante ambiente 60 ml tutty fruty violeta carro novo">
-                <div class="card-image-wrapper">
-                    <img src="images/AROMATIZANTE AMBIENTE 60 ML - TUTTY FRUTY - VIOLETA - CARRO NOVO.jpg" alt="Aromatizante de Ambiente 60ml" loading="lazy">
-                    <span class="tag">Aromatizante</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Aromatizante de Ambiente Concentrado</h3>
-                    <p class="product-desc">Perfumação prolongada para ambientes e veículos. Fragrâncias: Tutty Fruty, Violeta e Carro Novo.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 60 ml</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Aromatizante%20Ambiente%2060ml" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="product-card" data-category="limpeza" data-name="cloro 2l">
-                <div class="card-image-wrapper">
-                    <img src="images/CLORO 2L.png" alt="Cloro 2L" loading="lazy">
-                    <span class="tag">Desinfecção</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Cloro Ativo Multiuso</h3>
-                    <p class="product-desc">Poderosa ação branqueadora e desinfetante para superfícies, pisos e lavanderia.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 2 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Cloro%202L" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="product-card" data-category="desinfetantes" data-name="desinfetantes 2l eucalipto floral jasmin lavanda pinho vert talco violece violeta zix">
-                <div class="card-image-wrapper">
-                    <img src="images/DESINFENTANTES 2L - EUCALIPTO - FLORAL - JASMIN - LAVANDA - PINHO VERT - PINHO VERT - TALCO - VIOLECE - VIOLETA - ZIX.png" alt="Desinfetantes Líquidos 2L" loading="lazy">
-                    <span class="tag">Desinfetante</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Desinfetante Perfumado 2L</h3>
-                    <p class="product-desc">Elimina germes e bactérias deixando um aroma agradável. Diversas fragrâncias disponíveis.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 2 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Desinfetante%202L" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="product-card" data-category="desinfetantes" data-name="desinfetante concentrado 100 ml faz 5 l lavanda gleyde marinho mirra kaiak violeta palmolive primavera dama da noite geovana baby flores do campo citrus lavanda oriente">
-                <div class="card-image-wrapper">
-                    <img src="images/DESINFETANTE CONCENTRADO 100 ML FAZ 5 L - LAVANDA - LAVANDA GLEYDE -MARINHO -MIRRA -KAIAK -VIOLETA - PALMOLIVE -PRIMAVERA -DAMA DA NOITE - GEOVANA BABY -FLORES DO CAMPO - CITRUS - LAVANDA ORIENTE.png" alt="Desinfetante Concentrado 100ml" loading="lazy">
-                    <span class="tag">Super Concentrado</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Desinfetante Concentrado 100ml</h3>
-                    <p class="product-desc">Alta rentabilidade: 100ml rende até 5 Litros. Ampla variedade de fragrâncias exclusivas.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-arrows-rotate"></i> Rende 5 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Desinfetante%20Concentrado%20100ml" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="product-card" data-category="desinfetantes" data-name="desinfetante gelatinoso 1l sampin">
-                <div class="card-image-wrapper">
-                    <img src="images/DESINFETANTE GELATINOSO 1L SAMPIN.jpg" alt="Desinfetante Gelatinoso 1L Sampin" loading="lazy">
-                    <span class="tag">Gel Especial</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Desinfetante Gelatinoso Sampin</h3>
-                    <p class="product-desc">Fórmula em gel com fixação prolongada nas superfícies e fragrância intensa.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 1 Litro</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Desinfetante%20Gelatinoso%20Sampin%201L" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="product-card" data-category="limpeza" data-name="detergente coco maça limão neutro">
-                <div class="card-image-wrapper">
-                    <img src="images/DETERGENTE - COCO - MAÇA - LIMÃO - NEUTRO.png" alt="Detergente Multiuso" loading="lazy">
-                    <span class="tag">Cozinha</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Detergente Líquido Lava-Louças</h3>
-                    <p class="product-desc">Eficiente no combate à gordura, suave para as mãos. Opções: Coco, Maçã, Limão e Neutro.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 500 ml / 2 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Detergente%20Líquido" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 9 -->
-            <div class="product-card" data-category="desinfetantes" data-name="hipoclorito de sódio 500 ml faz 5 litros">
-                <div class="card-image-wrapper">
-                    <img src="images/HIPOCLORITO DE SÓDIO - 500 ML - FAZ 5 LITROS.png" alt="Hipoclorito de Sódio 500ml" loading="lazy">
-                    <span class="tag">Desinfecção Profunda</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Hipoclorito de Sódio Concentrado</h3>
-                    <p class="product-desc">Ação germicida potente. Frasco de 500ml com alto rendimento (rende 5 litros diluído).</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-arrows-rotate"></i> Rende 5 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Hipoclorito%20de%20Sódio" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 10 -->
-            <div class="product-card" data-category="limpeza" data-name="multiuso multilimp green 2l">
-                <div class="card-image-wrapper">
-                    <img src="images/MULTIUSO - MULTILIMP GREEN 2L.jfif" alt="Multiuso Multilimp Green 2L" loading="lazy">
-                    <span class="tag">Praticidade</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Multiuso Multilimp Green</h3>
-                    <p class="product-desc">Limpador prático para sujeiras difíceis em superfícies laváveis, fogões e bancadas.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 2 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Multiuso%20Multilimp%20Green" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 11 -->
-            <div class="product-card" data-category="limpeza" data-name="sj mult 1 l desengraxante desengordurante">
-                <div class="card-image-wrapper">
-                    <img src="images/SJ MULT 1 L DESENGRAXANTE - DESENGORDURANTE.png" alt="SJ Mult Desengraxante Desengordurante 1L" loading="lazy">
-                    <span class="tag">Pesado</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">SJ Mult Desengraxante / Desengordurante</h3>
-                    <p class="product-desc">Remove óleos, graxas e sujeiras pesadas em superfícies industriais ou domésticas.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 1 Litro</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20SJ%20Mult%20Desengraxante" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card 12 -->
-            <div class="product-card" data-category="higiene" data-name="sabonete liquido perolado 2l florence violeta erva doce">
-                <div class="card-image-wrapper">
-                    <img src="images/Sabonete liquido PEROLADO 2L - Florence - Violeta - Erva doce.png" alt="Sabonete Líquido Perolado 2L" loading="lazy">
-                    <span class="tag">Higiene</span>
-                </div>
-                <div class="card-body">
-                    <h3 class="product-title">Sabonete Líquido Perolado</h3>
-                    <p class="product-desc">Proporciona limpeza suave com toque aveludado e fragrância agradável. Fragrâncias: Florence, Violeta e Erva Doce.</p>
-                    <div class="product-meta">
-                        <span class="volume"><i class="fa-solid fa-flask"></i> 2 Litros</span>
-                    </div>
-                    <a href="https://wa.me/?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Sabonete%20Líquido%20Perolado%202L" target="_blank" class="btn-card">
-                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Mensagem de resultado vazio -->
-        <div id="noResults" class="no-results hidden">
-            <i class="fa-solid fa-box-open"></i>
-            <p>Nenhum produto encontrado com este termo.</p>
-        </div>
+        </section>
     </main>
+
+    <!-- Modal de Detalhes do Produto -->
+    <div class="modal-overlay hidden" id="productModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modalImage" src="" alt="Produto">
+                </div>
+                <div class="modal-info">
+                    <span class="modal-category" id="modalCategory">Setor</span>
+                    <h2 id="modalTitle">Nome do Produto</h2>
+                    <p class="modal-desc" id="modalDesc">Descrição do produto...</p>
+                    
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <i class="fa-solid fa-box-archive"></i>
+                            <div>
+                                <strong>Rendimento / Volume</strong>
+                                <span id="modalVolume">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detalhamento das Fragrâncias -->
+                    <div class="fragrance-box" id="fragranceBox">
+                        <h3><i class="fa-solid fa-wind"></i> Fragrâncias / Opções Disponíveis:</h3>
+                        <div class="fragrance-list" id="fragranceList">
+                            <!-- Injetado via JS -->
+                        </div>
+                    </div>
+
+                    <a id="modalWhatsappBtn" href="#" target="_blank" class="btn btn-whatsapp-modal">
+                        <i class="fa-brands fa-whatsapp"></i> Solicitar Orçamento no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer" id="contato">
         <div class="container footer-content">
-            <div class="footer-brand">
+            <div>
                 <h3>Dalbran Produtos</h3>
-                <p>Qualidade, eficiência e economia em produtos de limpeza e higiene.</p>
+                <p>Soluções eficientes em limpeza e higienização.</p>
             </div>
-            <div class="footer-contact">
-                <h4>Atendimento</h4>
-                <p><i class="fa-brands fa-whatsapp"></i> Entre em contato diretamente via WhatsApp para pedidos e cotações.</p>
+            <div>
+                <p><i class="fa-brands fa-whatsapp"></i> Atendimento e Pedidos via WhatsApp</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 Dalbran. Todos os direitos reservados.</p>
-            </div>
+            <p>&copy; Catálogo Digital. Todos os direitos reservados.</p>
         </div>
     </footer>
 
